@@ -1,0 +1,17 @@
+# python3
+
+from ipaddress import IPv4Network
+
+num = 0
+
+f = open("zoom.txt", "r")
+file_contents = f.read()
+contents = file_contents.splitlines()
+
+output = open("Zoom_UDP.txt", "a")
+
+for line in contents:
+    num += 1
+    print("classes modify network create Zoom_UDP " + str(num) + " -a " + str(IPv4Network(line).network_address) + " -s " + str(IPv4Network(line).netmask), file=output)
+
+output.close()    
